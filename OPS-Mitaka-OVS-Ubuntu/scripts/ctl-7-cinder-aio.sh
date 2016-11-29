@@ -48,9 +48,9 @@ sleep 3
 
 apt-get -y install cinder-api cinder-scheduler lvm2 cinder-volume python-mysqldb
 
-pvcreate /dev/vdb
-vgcreate cinder-volumes /dev/vdb
-sed  -r -i 's#(filter = )(\[ "a/\.\*/" \])#\1["a\/vdb\/", "r/\.\*\/"]#g' \
+pvcreate /dev/sdb
+vgcreate cinder-volumes /dev/sdb
+sed  -r -i 's#(filter = )(\[ "a/\.\*/" \])#\1["a\/sdb\/", "r/\.\*\/"]#g' \
     /etc/lvm/lvm.conf
 
 
