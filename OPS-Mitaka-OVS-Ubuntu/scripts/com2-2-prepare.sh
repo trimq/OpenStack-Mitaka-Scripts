@@ -66,7 +66,7 @@ test -f $nova_com.orig || cp $nova_com $nova_com.orig
 ## [DEFAULT] Section
 ops_edit $nova_com DEFAULT rpc_backend rabbit
 ops_edit $nova_com DEFAULT auth_strategy keystone
-ops_edit $nova_com DEFAULT my_ip $COM2_MGNT_IP
+ops_edit $nova_com DEFAULT my_ip $COM1_MGNT_IP
 ops_edit $nova_com DEFAULT use_neutron  True
 ops_edit $nova_com DEFAULT \
     firewall_driver nova.virt.firewall.NoopFirewallDriver
@@ -182,7 +182,7 @@ ops_edit $ovsfile securitygroup firewall_driver \
      neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
 
 ## [ovs] section
-ops_edit $ovsfile ovs local_ip $COM2_MGNT_IP
+ops_edit $ovsfile ovs local_ip $COM1_MGNT_IP
 
 echocolor "Reset service nova-compute,openvswitch_agent"
 sleep 5
